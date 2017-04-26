@@ -1,0 +1,3 @@
+[submodule "WIMpy"]
+	path = WIMpy
+	url = https://github.com/bradkav/WIMpy
