@@ -1,12 +1,10 @@
-from DMUtils import *
-from Experiment import *
 import sys
 import matplotlib.pyplot as pl
 from scipy.stats import chi2, norm
 import emcee
 import CalcParamPoint as CPP
 from CalcLikelihood import *
-
+from WIMpy.Experiment import Experiment
 
 print " "
 print "***********************"
@@ -16,8 +14,6 @@ print " "
 
 print " Code for comparing sampling grids for calculating the likelihood..."
 
-
-
 #Read parameters from command line
 m0 = float(sys.argv[1])
 index = int(sys.argv[2])
@@ -26,9 +22,10 @@ index = int(sys.argv[2])
 #----Functions----
 
 print " Loading experiments..."
-exptlist = ["Xenon2", "Argon", "Silicon"]
+exptlist = ["Xenon", "Argon", "Silicon"]
 N_expt = len(exptlist)
-expts = [ Experiment(exptlist[i] + ".txt") for i in range(N_expt)]
+exptdir = "DDexpt/"
+expts = [ Experiment(exptdir + exptlist[i] + ".txt") for i in range(N_expt)]
 
 
 #Generate couplings from index:                                               
@@ -80,16 +77,16 @@ mlist = np.logspace(np.log10(m_min), np.log10(m_max), Nmvals)
 likelist = np.zeros((Nmvals, 5))
 
 #Different numbers of grid points to try
-Ngrid = [50, 100, 200]
+Ngrid = [25, 50, 100]
 refine = [True, True, True]
-#In the last case, we use 100 points but refine the grid
+
 
 likelist_maj = np.zeros((Nmvals, 3))
 likelist_dir = np.zeros((Nmvals, 3))
 
 for i, mi in enumerate(mlist):
     print "   ",i+1, "of", Nmvals,": m_x =", mi, "GeV"
-    for j in range(1):
+    for j in range(3):
         #print j
         likelist_maj[i,j] = CalcLike_grid(mi, expts, 4*Ngrid[j], maj = True,refine=refine[j])
         likelist_dir[i,j] = CalcLike_grid(mi, expts, Ngrid[j], maj = False,refine=refine[j])
@@ -105,7 +102,7 @@ for j in range(3):
 
 
 lines = [":", "--", "-"]
-labels = ["N = 50 (refined)",  "N = 100 (refined)", "N = 200 (refined)"]
+labels = ["N = 25 (refined)",  "N = 50 (refined)", "N = 100 (refined)"]
 
 pl.figure()
 L0_global = np.nanmax(likelist_dir)
@@ -134,6 +131,6 @@ pl.xlabel(r"$m_\chi [GeV]$")
 pl.ylabel(r"$-2 \Delta \mathrm{log}\mathcal{L}$")
 
 
-#pl.savefig("plots/GridComparison_m=" + str(m0) +".pdf")
+pl.savefig("plots/GridComparison_m=" + str(m0) +".pdf")
 pl.show()
 

@@ -1,31 +1,23 @@
-from DMUtils import *
-from Experiment import *
 import sys
 from scipy.stats import chi2, norm
 import matplotlib.pyplot as pl
+import numpy as np
 
 #Sampling paramaters
 logc_min = -10
 logc_max = -6
 
+#Initial half-width of the grid
 d0 = (logc_max - logc_min)/2.0
-r = 0.80
-r2 = 1.5
+
+#Number of refinement steps
 Ndvals = 10
-dvals = d0/np.append((1 + np.exp(r2*np.linspace(-4, 2,Ndvals-1))), 50.0)
-#dvals = d0/(1 + np.exp(r2*np.linspace(-4, 3,Ndvals)))
-#dvals2 = d0*(r**np.linspace(1, 10,Ndvals))
-#print dvals
-#print dvals2
-#pl.figure()
-#pl.plot(dvals, 'b-')
-#pl.plot(dvals, 'b*')
-#pl.plot(dvals2, 'r-')
-#pl.show()
+
+#Calculate half-width of grid at each step
+r = 1.5
+dvals = d0/np.append((1 + np.exp(r*np.linspace(-4, 2,Ndvals-1))), 50.0)
 
 PLOTLIKE = False
-
-c0 = np.sqrt(10**(logc_min+logc_max))
 
 #----Functions----
 
@@ -87,97 +79,68 @@ def CalcLike_grid(mx, expts, Ngrid = 100, maj = False, refine=False):
         cnmax_dir = CN.flatten()[ind_dir]
         fmax_dir = F.flatten()[ind_dir]
 
-    delta0 = d0*r
-
     if (mx > 1 and maj and PLOTLIKE):
         f, (ax1,ax2) = pl.subplots(2, figsize=(5, 9))
         pl.suptitle("N_grid = " + str(Ngrid))
         cf1 = ax1.contourf(np.log10(CP[:,:,0]), np.log10(CN[:,:,0]), full_like[:,:,0] - np.max(full_like),np.linspace(-50,1,101))
         ax1.plot(np.log10(cpmax_maj_minus), np.log10(cnmax_maj_minus), 'gs')
         ax1.set_title("Negative")
-        yvals = [np.log10(cnmax_maj_minus)-delta0,np.log10(cnmax_maj_minus)+delta0, np.log10(cnmax_maj_minus)+delta0, np.log10(cnmax_maj_minus)-delta0,np.log10(cnmax_maj_minus)-delta0]
-        xvals = [np.log10(cpmax_maj_minus)-delta0,np.log10(cpmax_maj_minus)-delta0, np.log10(cpmax_maj_minus)+delta0, np.log10(cpmax_maj_minus)+delta0,np.log10(cpmax_maj_minus)-delta0]
-        ax1.plot(xvals,yvals,'k:')
-        #ax1.plot(np.log10(cp_list), np.log10(cn_list))
-        #pl.colorbar(cf1)
-        
-        #ax1.axvline(np.log10(2.1e-8/np.sqrt(2)))
-        #ax1.axhline(np.log10(1.66e-8/np.sqrt(2)))
-        
-
         
         cf2 = ax2.contourf(np.log10(CP[:,:,-1]), np.log10(CN[:,:,-1]), full_like[:,:,-1] - np.max(full_like),np.linspace(-50,1,101))
         ax2.plot(np.log10(cpmax_maj_plus), np.log10(cnmax_maj_plus), 'gs')
         ax2.set_title("Positive")
-        yvals = [np.log10(cnmax_maj_plus)-delta0,np.log10(cnmax_maj_plus)+delta0, np.log10(cnmax_maj_plus)+delta0, np.log10(cnmax_maj_plus)-delta0,np.log10(cnmax_maj_plus)-delta0]
-        xvals = [np.log10(cpmax_maj_plus)-delta0,np.log10(cpmax_maj_plus)-delta0, np.log10(cpmax_maj_plus)+delta0, np.log10(cpmax_maj_plus)+delta0,np.log10(cpmax_maj_plus)-delta0]
-        ax2.plot(xvals,yvals,'k:')
-        #pl.colorbar(cf2)
         pl.show()
     
-    majlike_minus = np.zeros(Ndvals)
-    majlike_plus = np.zeros(Ndvals)
-    dirlike = np.zeros(Ndvals)
     if (refine):
+        #List of maximum likelihoods over each refinement step
+        majlike_minus = np.zeros(Ndvals)
+        majlike_plus = np.zeros(Ndvals)
+        dirlike = np.zeros(Ndvals)
+        
         #Refine for Majorana- and Dirac-like couplings
         #Based on current max-like values
         if (maj):
-            cp_new = np.sqrt(cpmax_maj_minus*c0)
-            cn_new = np.sqrt(cnmax_maj_minus*c0)
-            
-            cp_new = cpmax_maj_minus
-            cn_new = cnmax_maj_minus
+            cp1 = cpmax_maj_minus
+            cn1 = cnmax_maj_minus
             f1 = -1.0 
             for i in range(Ndvals):
-                (majlike_minus[i], cp1, cn1, f1)  = CalcLike_refine(mx, expts, Ngrid, cp_new, cn_new, f1, dvals[i], maj=True)
-                cp_new = np.sqrt(cp_new*cp1)
-                cn_new = np.sqrt(cn_new*cn1)
-                cp_new = cp1
-                cn_new = cn1
-            #reflike_maj_minus  = CalcLike_refine(mx, expts, Ngrid+1, cp1, cn1, f1, delta1, maj=True)[0]
+                (majlike_minus[i], cp1, cn1, f1)  = CalcLike_refine(mx, expts, Ngrid, cp1, cn1, f1, dvals[i], maj=True)
         
-            cp_new = np.sqrt(cpmax_maj_plus*c0)
-            cn_new = np.sqrt(cnmax_maj_plus*c0)
+            cp1 = cpmax_maj_plus
+            cn1 = cnmax_maj_plus
             f1 = 1.0
             for i in range(Ndvals):
-                (majlike_plus[i], cp1, cn1, f1) = CalcLike_refine(mx, expts, Ngrid, cp_new, cn_new, f1, dvals[i], maj=True)
-                cp_new = np.sqrt(cp_new*cp1)
-                cn_new = np.sqrt(cn_new*cn1)
-            #reflike_maj_plus = CalcLike_refine(mx, expts, Ngrid+1, cp1, cn1, f1, delta1, maj=True)[0]
+                (majlike_plus[i], cp1, cn1, f1) = CalcLike_refine(mx, expts, Ngrid, cp1, cn1, f1, dvals[i], maj=True)
             
-            reflike = np.maximum(np.max(majlike_minus), np.max(majlike_plus))
+            maxlike = np.maximum(np.max(majlike_minus), np.max(majlike_plus))
         
             majtest = CalcLike_refine(mx, expts, Ngrid, 2e-8, 1.5e-8, -1.0, 0.25, maj=True)[0]
             
             #print reflike, majtest
-            if (majtest > reflike):
-                if (np.abs(majtest-reflike) > 0.1):
-                    print " Problem: ", reflike, majtest
+            if (majtest > maxlike):
+                if (np.abs(majtest-maxlike) > 0.1):
+                    print " Problem: ", maxlike, majtest
         else:
             
-            cp_new = np.sqrt(cpmax_dir*c0)
-            cn_new = np.sqrt(cnmax_dir*c0)
+            cp1 = cpmax_dir
+            cn1 = cnmax_dir
             f1 = fmax_dir
-            #f_new = 0.5*fmax_dir
             for i in range(Ndvals):
-                (dirlike[i], cp1, cn1, f1) = CalcLike_refine(mx, expts, Ngrid, cp_new, cn_new, f1, dvals[i], maj=False)
-                cp_new = np.sqrt(cp_new*cp1)
-                cn_new = np.sqrt(cn_new*cn1)
-            #reflike = CalcLike_refine(mx, expts, Ngrid+1, cp1, cn1, f1, delta1, maj=False)[0]
-            #print (cp1, cn1, f1)
-            reflike = np.max(dirlike)
-        return reflike
+                (dirlike[i], cp1, cn1, f1) = CalcLike_refine(mx, expts, Ngrid, cp1, cn1, f1, dvals[i], maj=False)
+
+            maxlike = np.max(dirlike)
+        
     else:
-        reflike = np.max(full_like)
+        maxlike = np.max(full_like)
     
-        return reflike
+    return maxlike
         
 #-----------------
 def CalcLike_refine(mx, expts, Ngrid, cp0, cn0, f0, delta, maj):
-    #if (not maj):
-    #    print delta/8.0, f0
     
+    #Range of values in f to grid scan
     deltaf = delta/4.0
+    
     #Make sure we don't stray too far...
     if ((np.log10(cp0)-delta) < -11):
         cp0 = 1e-11*(10**delta)
@@ -244,19 +207,13 @@ def CalcLike_refine(mx, expts, Ngrid, cp0, cn0, f0, delta, maj):
     cnmax_dir = CN.flatten()[ind_dir]
     fmax_dir = F.flatten()[ind_dir]
 
-    delta0 = delta*r
-
     if (mx > 1 and maj and f0 < 0 and PLOTLIKE):
         f, (ax1,ax2) = pl.subplots(2, figsize=(5, 9))
         pl.suptitle("Refined")
         cf1 = ax1.contourf(np.log10(CP[:,:,0]), np.log10(CN[:,:,0]), full_like[:,:,0] - np.max(full_like),np.linspace(-50,1,101))
         ax1.plot(np.log10(cpmax_maj_minus), np.log10(cnmax_maj_minus), 'gs')
         ax1.set_title("Negative")
-        yvals = [np.log10(cnmax_maj_minus)-delta0,np.log10(cnmax_maj_minus)+delta0, np.log10(cnmax_maj_minus)+delta0, np.log10(cnmax_maj_minus)-delta0,np.log10(cnmax_maj_minus)-delta0]
-        xvals = [np.log10(cpmax_maj_minus)-delta0,np.log10(cpmax_maj_minus)-delta0, np.log10(cpmax_maj_minus)+delta0, np.log10(cpmax_maj_minus)+delta0,np.log10(cpmax_maj_minus)-delta0]
-        ax1.plot(xvals,yvals,'k:')
-        #ax1.plot(np.log10(cp_list), np.log10(cn_list))
-        #pl.colorbar(cf1)
+        
         ax1.set_xlim(np.log10(cp0)-delta,np.log10(cp0)+delta)
         ax1.set_ylim(np.log10(cn0)-delta,np.log10(cn0)+delta)
         
@@ -267,7 +224,7 @@ def CalcLike_refine(mx, expts, Ngrid, cp0, cn0, f0, delta, maj):
 
     return np.max(full_like), cpmax_dir, cnmax_dir, fmax_dir
 
-    
+#Use a 2-sided convention for the significance
 def CalcSignificance(L0, L1):
     deltaL = L1 - L0
     pval = 1-chi2.cdf(2*deltaL,1)
