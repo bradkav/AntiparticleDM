@@ -1,13 +1,15 @@
-# WIMpy
-[**Work in progress**] Python code for doing fits to (mock) dark matter direct detection data.
+# AntiparticleDM
+Python code for calculating the prospects of future direct detection experiments to discrimination between Majorana and Dirac Dark Matter (i.e. to determine whether Dark Matter is its own antiparticle).
 
-Details of how to use the code will be added soon!
+Direct detection event rates and mock data generation are taken care of by the `WIMpy` code - available [here](https://github.com/bradkav/WIMpy).
+
+If you have any questions, comments, bug-reports etc., please contact Bradley Kavanagh at bradkav@gmail.com. 
 
 ### Performing fits
 
-The python script `WIM.py` is used to calculate the significance achievable with a particular set of experiments and a particular set of input Dark Matter parameters. It is called as:
+The python script `CalcDiscrimination.py` is used to calculate the significance achievable with a particular set of experiments and a particular set of input Dark Matter parameters. It is called as:
 
-`python WIM.py ENSEMBLE MASS INDEX DIR`
+`python CalcDiscrimination.py ENSEMBLE MASS INDEX DIR`
 
 Here, `ENSEMBLE` specifies which experimental ensemble to use `A`, `B`, `C` or `D`. `MASS` specifies the input DM mass in GeV. `INDEX` specifies the input DM couplings (in particular, in indexes the points on a grid of couplings).
 
