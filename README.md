@@ -20,3 +20,15 @@ Here, `ENSEMBLE` specifies which experimental ensemble to use `A`, `B`, `C` or `
 `CompareNgrid.py`
 
 ### Plotting
+
+## Citation
+
+If you make use of the code or the numerical results, please cite:
+
+`Kavanagh, B. J., Queiroz, F. S., Rodejohann, W., Yaguna, C. E., AntiparticleDM (2017), https://github.com/bradkav/AntiparticleDM/`
+
+Please also cite...
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
