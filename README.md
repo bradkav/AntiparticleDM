@@ -23,7 +23,7 @@ Here, `ENSEMBLE` specifies which experimental ensemble to use `A`, `B`, `C` or `
 
 ## Citation
 
-If you make use of the code or the numerical results, please cite:
+If you make use of the code or the numerical results, please cite the project as:
 
 `Kavanagh, B. J., Queiroz, F. S., Rodejohann, W., Yaguna, C. E., AntiparticleDM (2017), https://github.com/bradkav/AntiparticleDM/`
 
