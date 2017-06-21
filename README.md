@@ -1,4 +1,7 @@
 # AntiparticleDM
+
+[![DOI](https://zenodo.org/badge/89482191.svg)](https://zenodo.org/badge/latestdoi/89482191)
+
 Python code for calculating the prospects of future direct detection experiments to discrimination between Majorana and Dirac Dark Matter (i.e. to determine whether Dark Matter is its own antiparticle).
 
 Direct detection event rates and mock data generation are taken care of by the `WIMpy` code - available [here](https://github.com/bradkav/WIMpy).
