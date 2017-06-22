@@ -1,6 +1,6 @@
 # AntiparticleDM
 
-[![DOI](https://zenodo.org/badge/89482191.svg)](https://zenodo.org/badge/latestdoi/89482191)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.815457.svg)](https://doi.org/10.5281/zenodo.815457)
 
 Python code for calculating the prospects of future direct detection experiments to discrimination between Majorana and Dirac Dark Matter (i.e. to determine whether Dark Matter is its own antiparticle).
 
