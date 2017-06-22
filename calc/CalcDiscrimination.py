@@ -28,7 +28,7 @@ if (len(sys.argv) > 4):
     save_to_file = True
 
 #Number of mock data sets to generate
-Nsamps = 100
+Nsamps = 10
 
 #Select the correct experimental ensemble
 print " Loading experiments for ensemble", ensemble, "..."
@@ -69,6 +69,13 @@ print " "
 for i in range(N_expt):
     print " Ne(" + exptlist[i] + "): ", expts[i].CalcNevents(m0,l), "; sig_p =", expts[i].sig_eff(m0, l)
 print " "
+
+#Pretabulate some of the likelihood stuff:
+for expt in expts:
+    expt.TabulateAll(m0)
+
+print "NEED TO READ FROM CONFIG FILE!!!!! NSAMPS!!!"
+
 
 #Check against current limits - DarkSide-50
 DSdata = np.loadtxt("DS50limits_1510.00702.txt")
@@ -114,6 +121,7 @@ print " Calculating likelihoods..."
 
 #Discrimination significance
 sigvals = np.zeros(Nsamps)
+
 
 #Generate Nsamps mock data sets
 for k in range(Nsamps):
