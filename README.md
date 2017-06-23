@@ -14,6 +14,10 @@ If you have any questions, comments, bug-reports etc., please contact Bradley Ka
 
 ## Contents
 
+- `calc`: core code for calculating the statistical significance for discriminating between Dirac and Majorana Dark Matter (DM).
+- `analysis`: scripts for processing the results and generating plots.
+- `results`: data products for a range of DM masses, couplings and experimental ensembles.
+
 ## Reproducing the results <a name="repro"></a>
 
 ### Getting started
