@@ -1,3 +1,13 @@
+"""
+CalcLikelihood.py
+
+Code for calculating the likelihood from future direct detection data.
+Requires some partial likelihood data to be pre-calculated using
+'expt.TabulateAll(mx)' for all the experiments under consideration.
+
+BJK - 23/06/2017
+"""
+
 import sys
 from scipy.stats import chi2, norm
 #import matplotlib.pyplot as pl
