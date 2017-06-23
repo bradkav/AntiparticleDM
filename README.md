@@ -33,9 +33,6 @@ For calculating the discrimination significance over a grid of the input couplin
 For calculating the discrimination significance as a function of exposure (for a fixed input), you can run [`scripts/RunFits_exposure.sh`](scripts/RunFits_exposure.sh).
 
 Note that these scripts will take a long time to run (think hours to days...). In practice then, you'll probably want to run things on a computing cluster. For this, we provide two python files [`scripts/RunMPI_couplings.py`](scripts/RunMPI_couplings.py) and [`scripts/RunMPI_exposure.py`](scripts/RunMPI_exposure.py), which are MPI-enabled and take care of running large numbers of fits in parallel. To use these, `mpi4py` is required.
-<!---
-For each data set, it uses a grid-refinement method to calculate the maximum likelihood and therefore the significance for discrimination between Dirac-like and Majorana-like couplings. The significances are output to a file named `Results_pINDEX.txt` in the relative path `DIR`.
---->
 
 #### Generating plots
 
