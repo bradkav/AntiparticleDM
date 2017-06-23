@@ -17,6 +17,12 @@ processes in the current batch.
 
 See CalcDisc-vs-Couplings.py for information on what the other
 command line parameters should be.
+
+To execute with 16 MPI processes, you would have something
+like the following in your submission script:
+
+mpirun -np 16 python RunMPI_couplings.py
+
 """
 
 #Get inputs from command line
