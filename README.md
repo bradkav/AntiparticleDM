@@ -17,12 +17,16 @@ If you have any questions, comments, bug-reports etc., please contact Bradley Ka
 - `calc`: core code for calculating the statistical significance for discriminating between Dirac and Majorana Dark Matter (DM).
 - `analysis`: scripts for processing the results and generating plots.
 - `results`: data products for a range of DM masses, couplings and experimental ensembles.
+- `plots`: plots from arXiv:XXXX.XXXXX (and others).
 
 ## Reproducing the results <a name="repro"></a>
 
-### Getting started
+The majority of the code is written in `python`, and requires the standard `numpy` and `scipy` libraries. For plotting, `matplotlib` is also required.
 
-### Performing fits
+
+### Performing likelihood fits
+
+Code for generating mock data sets and performing likelihood fits are found in the `calc` folder. 
 
 The python script `CalcDiscrimination.py` is used to calculate the significance achievable with a particular set of experiments and a particular set of input Dark Matter parameters. It is called as:
 
