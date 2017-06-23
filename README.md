@@ -17,6 +17,7 @@ If you have any questions, comments, bug-reports etc., please contact Bradley Ka
 ## Contents
 
 - `calc`: core code for calculating the statistical significance for discriminating between Dirac and Majorana Dark Matter (DM).
+- `scripts`: scripts for reproducing results from the paper (NB: some may need to be implemented on a computing cluster...)
 - `analysis`: scripts for processing the results and generating plots.
 - `results`: data products for a range of DM masses, couplings and experimental ensembles.
 - `plots`: plots from arXiv:XXXX.XXXXX (and others).
@@ -65,9 +66,13 @@ Scripts for generating plots from the results are in the `analysis/` folder. To 
 
 If you make use of the code or the numerical results, please cite the project as:
 
-`Kavanagh, B. J., Queiroz, F. S., Rodejohann, W., Yaguna, C. E., AntiparticleDM (2017), https://github.com/bradkav/AntiparticleDM/`
+> Kavanagh, B. J., Queiroz, F. S., Rodejohann, W., Yaguna, C. E., "AntiparticleDM" (2017), https://github.com/bradkav/AntiparticleDM/, [doi:10.5281/zenodo.815457](http://dx.doi.org/10.5281/zenodo.815457)
 
-Please also cite...
+Please also cite the associated papers:
+
+> Kavanagh, B. J., Queiroz, F. S., Rodejohann, W., Yaguna, C. E., "Prospects for determining the particle/antiparticle nature of WIMP dark matter with direct detection experiments" (2017), arXiv:XXXX.XXXXX
+
+> Queiroz, F. S., Rodejohann, W., Yaguna, C. E., "Is the dark matter particle its own antiparticle?", Phys. Rev. D 95 (2017) 095010, [arXiv:1610.06581](https://arxiv.org/abs/arXiv:1610.06581)
 
 ## License
 
