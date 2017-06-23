@@ -10,9 +10,9 @@ With this code, the results of arXiv:XXXX.XXXXX should be **entirely reproducibl
 
 If you have any questions, comments, bug-reports etc., please contact Bradley Kavanagh at bradkav@gmail.com. 
 
-## Version History
+### Version History
 
-
+## Contents
 
 ## Reproducing the results <a name="repro"></a>
 
