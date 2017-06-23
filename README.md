@@ -49,6 +49,8 @@ For each data set, it uses a grid-refinement method to calculate the maximum lik
 
 ### Generating plots
 
+Scripts for generating plots from the results are in the `analysis/` folder. To (re-)generate all the plots from the paper, simply run `analysis/GeneratePlots.sh`.
+
 ### Checking the likelihood calculator
 
 `CompareNgrid.py`
