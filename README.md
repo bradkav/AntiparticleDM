@@ -26,11 +26,11 @@ The majority of the code is written in `python`, and requires the standard `nump
 
 #### Performing likelihood fits
 
-For calculating the discrimination significance for a single point in parameter space, check out [`scripts/index.ipynb`](scripts/index.ipynb).
+For calculating the discrimination significance for a single point in parameter space, check out [`calc/index.ipynb`](scripts/index.ipynb).
 
-For calculating the discrimination significance over a grid of the input couplings, you can run [`scripts/RunFits_couplings.sh`](scripts/RunFits_couplings.sh). 
+For calculating the discrimination significance over a grid of the input couplings, an example scripts is given in  [`scripts/RunFits_couplings.sh`](scripts/RunFits_couplings.sh). 
 
-For calculating the discrimination significance as a function of exposure (for a fixed input), you can run [`scripts/RunFits_exposure.sh`](scripts/RunFits_exposure.sh).
+For calculating the discrimination significance as a function of exposure (for a fixed input), an example script is given in [`scripts/RunFits_exposure.sh`](scripts/RunFits_exposure.sh).
 
 Note that these scripts will take a long time to run (think hours to days...). In practice then, you'll probably want to run things on a computing cluster. For this, we provide two python files [`scripts/RunMPI_couplings.py`](scripts/RunMPI_couplings.py) and [`scripts/RunMPI_exposure.py`](scripts/RunMPI_exposure.py), which are MPI-enabled and take care of running large numbers of fits in parallel. To use these, `mpi4py` is required.
 

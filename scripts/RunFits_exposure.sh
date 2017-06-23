@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#Move to the calc folder
+echo Moving to the calc/ folder...
+cd ../calc
+
 #Experimental ensemble to use
 EXPT=A
 
