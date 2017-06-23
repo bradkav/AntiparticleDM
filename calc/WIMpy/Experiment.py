@@ -1,7 +1,7 @@
 import numpy as np
 import DMUtils as DMU
 import MyParser as MP
-import matplotlib.pyplot as pl
+#import matplotlib.pyplot as pl
 from scipy.integrate import quad, cumtrapz
 from scipy.interpolate import interp1d, interp2d, RectBivariateSpline
 
