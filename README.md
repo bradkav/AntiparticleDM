@@ -10,6 +10,14 @@ With this code, the results of arXiv:XXXX.XXXXX should be **entirely reproducibl
 
 If you have any questions, comments, bug-reports etc., please contact Bradley Kavanagh at bradkav@gmail.com. 
 
+## Version History
+
+
+
+## Reproducing the results <a name="repro"></a>
+
+### Getting started
+
 ### Performing fits
 
 The python script `CalcDiscrimination.py` is used to calculate the significance achievable with a particular set of experiments and a particular set of input Dark Matter parameters. It is called as:
@@ -26,7 +34,7 @@ Here, `ENSEMBLE` specifies which experimental ensemble to use `A`, `B`, `C` or `
 
 ### Plotting
 
-## Reproducing the results <a name="repro"></a>
+
 
 ## Citation
 
