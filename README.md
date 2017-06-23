@@ -25,34 +25,35 @@ The majority of the code is written in `python`, and requires the standard `nump
 
 ### Performing likelihood fits
 
-Code for generating mock data sets and performing likelihood fits are found in the `calc` folder. 
+***NEED TO MENTION THE BINDER***
 
-The module `CalcDiscrimination.py` does the heavy lifting. If you want to calculate the discrimination significance for a particular ensemble and parameter point, use:
+Code for generating mock data sets and performing likelihood fits are found in the `calc` folder. The module `CalcDiscrimination.py` does the heavy lifting. If you want to calculate the discrimination significance for a particular ensemble and parameter point, use:
 
 ```python
 import CalcDiscrimination as CD
-CD.CalcDiscrim(ensemble, m0, f, r_np)
+CD.CalcDiscrim(ensemble, m0, f, r_np, outfile=None)
 ```
 
-where `m0` is the DM mass in GeV, `f` is the interference factor (Eq. 6) and `r_np` is the ratio of neutron to proton couplings (Eq. 5 over Eq. 4).
+where `ensemble` specifies which experimental ensemble you consider (A, B, C or D), `m0` is the DM mass in GeV, `f` is the interference factor (Eq. 6) and `r_np` is the ratio of neutron to proton couplings (Eq. 5 over Eq. 4). You can also specify an file to save the results to (`outfile`). 
 
-`python CalcDiscrimination.py ENSEMBLE MASS INDEX DIR`
+**Note** that the number of mock data samples (`N_samples`) to take is specified in the file `params.txt`. For illustration purposes, this is set to `N_samples = 10`. However, we recommend using a value of `N_samples = 100` to get enough statistics.
 
-If you're interested in calculating the discrimination significance for a particular parameter point and ensemble, you can use 
+For calculating the discrimination significance over a grid of the input couplings, you can run `RunFits_couplings.sh`. 
 
-The python script `CalcDiscrimination.py` is used to calculate the significance achievable with a particular set of experiments and a particular set of input Dark Matter parameters. It is called as:
+For calculating the discrimination significance as a function of exposure (for a fixed input), you can `RunFits_exposure.sh`.
 
+Note that these scripts will take a long time to run (think hours to days...). In practice then, you'll probably want to run things on a computing cluster. For this, we provide two python files `RunMPI_couplings.py` and `RunMPI_exposure.py`, which are MPI-enabled and take care of running large numbers of fits in parallel. To use these, `mpi4py` is required.
+<!---
+For each data set, it uses a grid-refinement method to calculate the maximum likelihood and therefore the significance for discrimination between Dirac-like and Majorana-like couplings. The significances are output to a file named `Results_pINDEX.txt` in the relative path `DIR`.
+--->
 
-
-Here, `ENSEMBLE` specifies which experimental ensemble to use `A`, `B`, `C` or `D`. `MASS` specifies the input DM mass in GeV. `INDEX` specifies the input DM couplings (in particular, in indexes the points on a grid of couplings).
-
-`WIMpy` generates 50 mock data sets based on the input parameter points. For each data set, it uses a grid-refinement method to calculate the maximum likelihood and therefore the significance for discrimination between Dirac-like and Majorana-like couplings. The significances are output to a file named `Results_pINDEX.txt` in the relative path `DIR`.
+### Generating plots
 
 ### Checking the likelihood calculator
 
 `CompareNgrid.py`
 
-### Plotting
+
 
 
 
