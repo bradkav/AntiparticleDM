@@ -1,11 +1,13 @@
 #!/usr/bin/python
+"""
+PlotContours_analytic.py
 
-# PlotContours_analytic.py
-#
-# Plot contours of discrepancy between Dirac and Majorana cross sections
-# calculated using AnalyticEstimate.nb
-#
-# BJK 22/06/2017
+Plot contours of discrepancy between Dirac and Majorana cross sections
+calculated using AnalyticEstimate.nb
+
+BJK 22/06/2017
+"""
+
 
 import numpy as np
 from numpy import pi
@@ -61,6 +63,8 @@ def inv_tick_function(X):
 #----Calculations---
 
 
+print " Plotting analytic estimates..."
+
 #Import results calculated using AnalyticEstimate.nb notebook
 xvals, yvals, zvals = np.loadtxt('../results/AnalyticEstimate.dat', unpack=True)
 
@@ -115,4 +119,4 @@ ax1.set_xlabel(r'$f =  (\lambda_p^D \lambda_n^{D} + \lambda_p^{\overline{D}} \la
 ax2.set_xlabel(r'$|\lambda_n^D/\lambda_n^{\overline{D}}|$', fontsize=20.0)
 
 pl.savefig("../plots/Significance-Estimate.pdf", bbox_inches="tight")
-pl.show()
+#pl.show()

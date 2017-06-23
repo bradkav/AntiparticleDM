@@ -19,5 +19,5 @@ do
     OUTFILE=$OUTDIR/Results_p$i.txt
 
     #Calculate significance
-    python CalcDisc-vs-Params.py $EXPT $MASS $i $OUTFILE
+    python CalcDisc-vs-Couplings.py $EXPT $MASS $i $OUTFILE
 done

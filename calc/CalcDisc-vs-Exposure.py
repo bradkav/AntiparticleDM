@@ -18,7 +18,7 @@ import CalcDiscrimination as CD
 ensemble = sys.argv[1] # ensemble: A, B, C or D
 m0 = float(sys.argv[2]) # DM mass [GeV]: 10.0 - 10000.0
 r_np = float(sys.argv[3]) # Value of lambda_n/lambda_p
-expindex = int(sys.argv[4])-1 # Index specifying the exposure (see below): 1-20
+expindex = int(sys.argv[4])-1 # Index specifying the exposure (see below): 1-32
 
 if (len(sys.argv) > 5):
     outfile = sys.argv[5] #Absolute or relative path to output file
@@ -29,7 +29,7 @@ else:
 f = -0.995
 
 #Calculate exposure in kg-years  
-exprange = np.round(np.logspace(2, 5 , 20))                                   
+exprange = np.round(np.logspace(2, 5 , 32))                                   
 exp = int(exprange[expindex])
 
 #Calculate discrimination significance

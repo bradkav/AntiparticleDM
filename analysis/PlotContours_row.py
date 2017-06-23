@@ -1,10 +1,11 @@
 #!/usr/bin/python
+"""
+PlotContours_row.py
 
-# PlotContours_row.py
-#
-# Plot contours of discrimination significance over a range of DM masses
-#
-# BJK 22/06/2017
+Plot contours of discrimination significance over a range of DM masses
+
+BJK 22/06/2017
+"""
 
 import numpy as np
 from numpy import pi
@@ -98,11 +99,9 @@ def getSignificance(reconID, pID, kind="Median"):
     if (kind == "Median"):
         return np.median(sigvals)
     if (kind == "Upper"):
-        ind = int(np.round(Nsamps*(1.0-0.32)))
-        return sigvals[ind]
+        return np.percentile(sigvals, 84.0)
     if (kind == "Lower"):
-        ind = int(np.round(Nsamps*0.32))
-        return sigvals[ind]
+        return np.percentile(sigvals, 16.0)
     
     ind = int(np.round(Nsamps*0.1))
     return sigvals[ind]
@@ -235,4 +234,4 @@ cb0.ax.tick_params(labelsize=18.0)
 #Adjust and save to file
 fig.subplots_adjust(hspace=0.1, wspace=0.05, right=0.95)
 pl.savefig("../plots/Contours_row-" + expt+ ".pdf", bbox_inches="tight")
-pl.show()
+#pl.show()

@@ -1,5 +1,5 @@
 """
-CalcDisc-vs-Params.py
+CalcDisc-vs-Couplings.py
 
 This file is a wrapper for CalcDiscrimination.py which
 allows you to specify an index 1-1024 (which denotes

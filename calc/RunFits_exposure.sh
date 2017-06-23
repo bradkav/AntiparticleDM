@@ -15,9 +15,9 @@ OUTDIR=../results/new_exposure
 
 mkdir -p $OUTDIR
 
-#Loop over 20 different values of the exposure
+#Loop over 32 different values of the exposure
 trap "exit" INT
-for i in {1..20}
+for i in {1..32}
 do
     #Choose whatever naming scheme you want for the output files
     OUTFILE=$OUTDIR/Results_r${RNP}_exp$i.txt
