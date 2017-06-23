@@ -8,7 +8,7 @@ With this code, the results of arXiv:XXXX.XXXXX should be **entirely reproducibl
 
 If you have any questions, comments, bug-reports etc., please contact Bradley Kavanagh at bradkav@gmail.com. 
 
-### Version History
+#### Version History
 
 **Version 1.0 (23/06/2017):** Initial release, including all results and plots from the paper.
 
@@ -24,7 +24,7 @@ If you have any questions, comments, bug-reports etc., please contact Bradley Ka
 
 The majority of the code is written in `python`, and requires the standard `numpy` and `scipy` libraries. For plotting, `matplotlib` is also required. Code for generating mock data sets and performing likelihood fits are found in the `calc` folder. Check the README in the `calc` folder for (slightly) more detail on how it works.
 
-### Performing likelihood fits
+#### Performing likelihood fits
 
 For calculating the discrimination significance for a single point in parameter space, check out [`scripts/index.ipynb`](scripts/index.ipynb).
 
@@ -37,11 +37,11 @@ Note that these scripts will take a long time to run (think hours to days...). I
 For each data set, it uses a grid-refinement method to calculate the maximum likelihood and therefore the significance for discrimination between Dirac-like and Majorana-like couplings. The significances are output to a file named `Results_pINDEX.txt` in the relative path `DIR`.
 --->
 
-### Generating plots
+#### Generating plots
 
 Scripts for generating plots from the results are in the `analysis/` folder. To (re-)generate all the plots from the paper, simply run `scripts/GeneratePlots.sh`.
 
-### Checking the likelihood calculator
+#### Checking the likelihood calculator
 
 You can also check that the likelihood calculator works well by running 
 
