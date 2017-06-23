@@ -23,14 +23,26 @@ If you have any questions, comments, bug-reports etc., please contact Bradley Ka
 
 The majority of the code is written in `python`, and requires the standard `numpy` and `scipy` libraries. For plotting, `matplotlib` is also required.
 
-
 ### Performing likelihood fits
 
 Code for generating mock data sets and performing likelihood fits are found in the `calc` folder. 
 
-The python script `CalcDiscrimination.py` is used to calculate the significance achievable with a particular set of experiments and a particular set of input Dark Matter parameters. It is called as:
+The module `CalcDiscrimination.py` does the heavy lifting. If you want to calculate the discrimination significance for a particular ensemble and parameter point, use:
+
+```python
+import CalcDiscrimination as CD
+CD.CalcDiscrim(ensemble, m0, f, r_np)
+```
+
+where `m0` is the DM mass in GeV, `f` is the interference factor (Eq. 6) and `r_np` is the ratio of neutron to proton couplings (Eq. 5 over Eq. 4).
 
 `python CalcDiscrimination.py ENSEMBLE MASS INDEX DIR`
+
+If you're interested in calculating the discrimination significance for a particular parameter point and ensemble, you can use 
+
+The python script `CalcDiscrimination.py` is used to calculate the significance achievable with a particular set of experiments and a particular set of input Dark Matter parameters. It is called as:
+
+
 
 Here, `ENSEMBLE` specifies which experimental ensemble to use `A`, `B`, `C` or `D`. `MASS` specifies the input DM mass in GeV. `INDEX` specifies the input DM couplings (in particular, in indexes the points on a grid of couplings).
 

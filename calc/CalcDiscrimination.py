@@ -13,6 +13,7 @@ print " *      CalcDiscrimination.py     *"
 print " **********************************"
 print " Code for calculating significance of discriminating between Dirac and Majorana DM..."
 print " Version 1.0 - BJK 23/06/2017"
+print " "
 
 
 def CalcDiscrim(ensemble, m0, f, r_np, outfile=None, exposure=-1):
@@ -85,9 +86,10 @@ def CalcDiscrim(ensemble, m0, f, r_np, outfile=None, exposure=-1):
         #Correction for number of experiments
         corr = 1.0/(N_expt - 2.0)
         for i in range(2, N_expt):
-            expts[i].exposure = corr*exp*365*0.7
+            expts[i].exposure = corr*exposure*365*0.7
 
         print " exposure (for other expts) = "+str(expts[-1].exposure/365.0) + " kg yr"
+        print " "
 
     #Pre-tabulate some of the likelihood stuff:
     for expt in expts:

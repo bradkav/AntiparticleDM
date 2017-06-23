@@ -10,6 +10,7 @@ BJK - 23/06/2017
 """
 
 import sys
+import numpy as np
 import CalcParamPoint as CPP
 import CalcDiscrimination as CD
 
@@ -27,7 +28,7 @@ else:
 #Fix the value of f:
 f = -0.995
 
-#Calculate exposure in ton-years  
+#Calculate exposure in kg-years  
 exprange = np.round(np.logspace(2, 5 , 20))                                   
 exp = int(exprange[expindex])
 

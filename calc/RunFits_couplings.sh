@@ -7,13 +7,17 @@ EXPT=A
 MASS=50
 
 #Output directory for the results
-OUTPUT_DIR=../results/new
+OUTDIR=../results/new
 
-mkdir $OUTPUT_DIR
+mkdir -p $OUTDIR
 
 #Loop over 1024 grid points in (f, l_n/l_p)
-for i in 1..1024
+trap "exit" INT
+for i in {1..1024}
 do
-    OUTFILE=$(OUTPUT_DIR)/Results_p$i.txt
+    #Choose whatever naming scheme you want for the output files
+    OUTFILE=$OUTDIR/Results_p$i.txt
+
+    #Calculate significance
     python CalcDisc-vs-Params.py $EXPT $MASS $i $OUTFILE
 done
