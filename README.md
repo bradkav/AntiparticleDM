@@ -49,9 +49,9 @@ Scripts for generating plots from the results are in the `analysis/` folder. To 
 
 You can also check that the likelihood calculator works well by running 
 
-"""python
+```python
 python CompareNgrid.py mx
-"""
+```
 
 in the `calc` folder (where `mx` is the DM mass in GeV). This will calculate the maximum likelihood as a function of mass for different densities of grid (showing hopefully that the case of a 50x50x50 grid for Dirac DM works well). There are also some plots to this effect in the `plots` folder.
 
