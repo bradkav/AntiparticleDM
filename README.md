@@ -12,6 +12,8 @@ If you have any questions, comments, bug-reports etc., please contact Bradley Ka
 
 ### Version History
 
+**Version 1.0 (23/06/2017):** Initial release, including all results and plots from the paper.
+
 ## Contents
 
 - `calc`: core code for calculating the statistical significance for discriminating between Dirac and Majorana Dark Matter (DM).
