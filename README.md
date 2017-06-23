@@ -26,7 +26,7 @@ The majority of the code is written in `python`, and requires the standard `nump
 
 #### Performing likelihood fits
 
-For calculating the discrimination significance for a single point in parameter space, check out the jupyter notebook [`calc/index.ipynb`](scripts/index.ipynb).
+For calculating the discrimination significance for a single point in parameter space, check out the jupyter notebook [`calc/index.ipynb`](calc/index.ipynb).
 
 For calculating the discrimination significance over a grid of the input couplings, an example scripts is given in  [`scripts/RunFits_couplings.sh`](scripts/RunFits_couplings.sh). 
 
