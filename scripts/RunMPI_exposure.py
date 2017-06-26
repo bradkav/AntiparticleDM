@@ -46,7 +46,7 @@ outfile = output_dir + "Results_r" + str(r_np) + "_exp" + str(expindex) + ".txt"
 #Directory where the calc files are located
 myDir = "/home/kavanagh/AntiparticleDM/calc/"
 cmd = "cd "+myDir+" ; python CalcDisc-vs-Exposure.py "
-cmd += expt + " " + mass + " " + r_np + " " + str(expindex) + " " + outfile 
+cmd += ensemble + " " + mass + " " + r_np + " " + str(expindex) + " " + outfile 
 
 sts = call(cmd,shell=True)
 comm.Barrier()
