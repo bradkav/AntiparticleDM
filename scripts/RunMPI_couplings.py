@@ -45,7 +45,7 @@ outfile = output_dir + "Results_p" + str(index) + ".txt"
 #Directory where the calc files are located
 myDir = "/home/kavanagh/AntiparticleDM/calc/"
 cmd = "cd "+myDir+" ; python CalcDisc-vs-Couplings.py "
-cmd += expt + " " + mass + " " + str(index) + " " + outfile 
+cmd += ensemble + " " + mass + " " + str(index) + " " + outfile 
 
 sts = call(cmd,shell=True)
 comm.Barrier()
