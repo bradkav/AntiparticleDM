@@ -4,7 +4,7 @@
 
 Python code for calculating the prospects of future direct detection experiments to discriminate between Majorana and Dirac Dark Matter (i.e. to determine whether Dark Matter is its own antiparticle). Direct detection event rates and mock data generation are taken care of by a variation of the `WIMpy` code (also available [here](https://github.com/bradkav/WIMpy/tree/Antiparticle)).
 
-With this code, the results of arXiv:XXXX.XXXXX should be ***entirely reproducible***. Follow the instructions [below](#repro) if you want to reproduce those results. If you find any mistakes or have any trouble at all reproducing any of the results, please open an issue or get in touch directly.
+With this code, the results of [arXiv:1706.07819](https://arxiv.org/abs/1706.07819) should be ***entirely reproducible***. Follow the instructions [below](#repro) if you want to reproduce those results. If you find any mistakes or have any trouble at all reproducing any of the results, please open an issue or get in touch directly.
 
 If you have any questions, comments, bug-reports etc., please contact Bradley Kavanagh at bradkav@gmail.com. 
 
@@ -18,7 +18,7 @@ If you have any questions, comments, bug-reports etc., please contact Bradley Ka
 - `scripts`: scripts for reproducing results from the paper (NB: some may need to be implemented on a computing cluster...)
 - `analysis`: scripts for processing the results and generating plots.
 - `results`: data products for a range of DM masses, couplings and experimental ensembles.
-- `plots`: plots from arXiv:XXXX.XXXXX (and others).
+- `plots`: plots from [arXiv:1706.07819](https://arxiv.org/abs/1706.07819) (and others).
 
 ## Reproducing the results <a name="repro"></a>
 
@@ -56,7 +56,7 @@ If you make use of the code or the numerical results, please cite the project as
 
 Please also cite the associated papers:
 
-> Kavanagh, B. J., Queiroz, F. S., Rodejohann, W., Yaguna, C. E., "Prospects for determining the particle/antiparticle nature of WIMP dark matter with direct detection experiments" (2017), arXiv:XXXX.XXXXX
+> Kavanagh, B. J., Queiroz, F. S., Rodejohann, W., Yaguna, C. E., "Prospects for determining the particle/antiparticle nature of WIMP dark matter with direct detection experiments" (2017), [arXiv:1706.07819](https://arxiv.org/abs/1706.07819)
 
 > Queiroz, F. S., Rodejohann, W., Yaguna, C. E., "Is the dark matter particle its own antiparticle?", Phys. Rev. D 95 (2017) 095010, [arXiv:1610.06581](https://arxiv.org/abs/arXiv:1610.06581)
 
