@@ -10,7 +10,8 @@ If you have any questions, comments, bug-reports etc., please contact Bradley Ka
 
 #### Version History
 
-**Version 1.0 (23/06/2017):** Initial release, including all results and plots from the paper.
+**Version 1.0.1 (27/06/2017):** Added arXiv number and fixed a couple of typos.
+**Version 1.0.0 (23/06/2017):** Initial release, including all results and plots from the paper.
 
 ## Contents
 
