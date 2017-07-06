@@ -4,3 +4,8 @@ backup/*
 backups/*
 deprecated/*
 *checkpoint.ipynb
+analysis/GetResults.sh
+analysis/GetResults.sh
+analysis/GetAllResults.sh
+
+analysis/GetAllResults.sh

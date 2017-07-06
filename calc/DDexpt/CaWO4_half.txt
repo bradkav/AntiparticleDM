@@ -3,19 +3,16 @@ N_isotopes	3
 m_1	40
 frac_1	0.14
 J_1	0.0
-Sp_1	0.0
-Sn_1	0.0
 
 N_p_1	20
 N_n_1	20
 
-
-m_2	180
+m_2	184
 frac_2 0.64
 J_2	0
 
 N_p_2	74
-N_n_2	106
+N_n_2	110
 
 m_3    16
 frac_3	0.22
@@ -25,10 +22,9 @@ N_p_3	8
 N_n_3	8
 
 
-
 m_det	1050
 exposure	365
-E_min	5
+E_min	10
 E_max	100
 
 

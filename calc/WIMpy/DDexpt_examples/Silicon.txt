@@ -3,8 +3,6 @@ N_isotopes	1
 m_1	28
 frac_1	1.0
 J_1	0.0
-Sp_1	0.421
-Sn_1	0.045
 
 N_p_1	14
 N_n_1	14
@@ -20,7 +18,7 @@ beta11_1	0
 
 m_det	2100
 exposure	365
-E_min	5
+E_min	7
 E_max	100
 
 

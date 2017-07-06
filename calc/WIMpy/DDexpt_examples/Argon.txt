@@ -7,7 +7,7 @@ J_1	0.0
 N_p_1	18
 N_n_1	22
 
-m_det	35000
+m_det	105000
 exposure	365
 E_min	30
 E_max	200

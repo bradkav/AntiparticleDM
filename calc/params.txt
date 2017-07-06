@@ -1,1 +1,2 @@
+#Number of mock data sets to use
 N_samples	10

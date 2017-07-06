@@ -53,9 +53,9 @@ print " Plotting discrimination significance for lambda_n/lambda_p =  " + str(R0
 
 #Read in a list of significances for a given point (pID) in parameter space
 #for a given reconstruction (reconID)
-def getSigvals_exp(reconID, exposure):
+def getSigvals_exp(reconID, expID):
     #Filename for results file
-    fname = "../results/" + reconID + "_exposure/Results_R=" + R0 + "_" + str(exposure) +'kg.txt'
+    fname = "../results/" + reconID + "_exposure/Results_r" + R0 + "_exp" + str(expID) +'.txt'
     
     #Check if the file exists (and clean up the data if necessary)
     if (os.path.exists(fname)):
@@ -72,8 +72,8 @@ def getSigvals_exp(reconID, exposure):
     return np.sort(data)
 
 #Calculate significance (median, mean, upper, lower) for a given point and reconstruction
-def getSignificance_exp(reconID, exposure, kind="Median"):
-    sigvals = getSigvals_exp(reconID, exposure)
+def getSignificance_exp(reconID, expID, kind="Median"):
+    sigvals = getSigvals_exp(reconID, expID)
     Nsamps = len(sigvals)
 
     if (kind == "Mean"):
@@ -107,15 +107,15 @@ sig_lower_D = exprange*0.0 + 1e-45
 
 reconID_A = "AP_ExptA_" + str(mx)
 for i in range(Nvals):
-    sig_med_A[i] = getSignificance_exp(reconID_A, int(exprange[i]), kind="Median") + 1e-45
-    sig_upper_A[i] = getSignificance_exp(reconID_A, int(exprange[i]), kind="Upper") + 1e-45
-    sig_lower_A[i] = getSignificance_exp(reconID_A, int(exprange[i]), kind="Lower") + 1e-45
+    sig_med_A[i] = getSignificance_exp(reconID_A, i+1, kind="Median") + 1e-45
+    sig_upper_A[i] = getSignificance_exp(reconID_A, i+1, kind="Upper") + 1e-45
+    sig_lower_A[i] = getSignificance_exp(reconID_A, i+1, kind="Lower") + 1e-45
 
 reconID_D = "AP_ExptD_" + str(mx)
 for i in range(Nvals):
-    sig_med_D[i] = getSignificance_exp(reconID_D, int(exprange[i]), kind="Median") + 1e-45
-    sig_upper_D[i] = getSignificance_exp(reconID_D, int(exprange[i]), kind="Upper") + 1e-45
-    sig_lower_D[i] = getSignificance_exp(reconID_D, int(exprange[i]), kind="Lower") + 1e-45
+    sig_med_D[i] = getSignificance_exp(reconID_D, i+1, kind="Median") + 1e-45
+    sig_upper_D[i] = getSignificance_exp(reconID_D, i+1, kind="Upper") + 1e-45
+    sig_lower_D[i] = getSignificance_exp(reconID_D, i+1, kind="Lower") + 1e-45
 
 
 #------Plotting---------

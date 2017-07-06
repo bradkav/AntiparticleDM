@@ -10,6 +10,7 @@ If you have any questions, comments, bug-reports etc., please contact Bradley Ka
 
 #### Version History
 
+**Version 1.0.2 (06/07/2017):** Updated results after fixing minor bugs (arXiv-v2).
 **Version 1.0.1 (27/06/2017):** Added arXiv number and fixed a couple of typos.  
 **Version 1.0.0 (23/06/2017):** Initial release, including all results and plots from the paper.
 
@@ -48,6 +49,8 @@ python CompareNgrid.py mx
 ```
 
 in the `calc` folder (where `mx` is the DM mass in GeV). This will calculate the maximum likelihood as a function of mass for different densities of grid (showing hopefully that the case of a 50x50x50 grid for Dirac DM works well). There are also some plots to this effect in the `plots` folder.
+
+We also ran some calculations of the discrimination significance using realistic isotope distributions, to compare with the simple 'single-isotope' approximations used in the paper. In the `results` folder, these are listed with `full` after the ensemble. The plot `plots/Exposure_R=0.75_comparison.pdf` shows the results.
 
 ## Citation
 

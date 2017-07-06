@@ -12,7 +12,7 @@ print " **********************************"
 print " *      CalcDiscrimination.py     *"
 print " **********************************"
 print " Code for calculating significance of discriminating between Dirac and Majorana DM..."
-print " Version 1.0 - BJK 23/06/2017"
+print " Version 1.0.2 - BJK 06/07/2017"
 print " "
 
 
@@ -45,12 +45,16 @@ def CalcDiscrim(ensemble, m0, f, r_np, outfile=None, exposure=-1):
     print " Loading experiments for ensemble", ensemble, "..."
     if (ensemble == "A"):
         exptlist = ["Xenon", "Argon", "Silicon"]
+    elif (ensemble == "A_full"):
+        exptlist = ["Xenon_full", "Argon", "Silicon_full"]
     elif (ensemble == "B"):
         exptlist = ["Xenon", "Argon", "Germanium"]
     elif (ensemble == "C"):
         exptlist = ["Xenon", "Argon", "CaWO4"]
     elif (ensemble == "D"):
         exptlist = ["Xenon", "Argon", "Germanium_half","CaWO4_half"]
+    elif (ensemble == "D_full"):
+        exptlist = ["Xenon_full", "Argon", "Germanium_half", "CaWO4_half"]
 
     exptdir = "DDexpt/"
 
@@ -103,7 +107,7 @@ def CalcDiscrim(ensemble, m0, f, r_np, outfile=None, exposure=-1):
     if (exptArgon.sig_eff(m0, l) > DSlim(m0)):
         print " Current limit exceeded (DS-50)..."
         if (save_to_file):
-            np.savetxt(output_folder + "Results_p" + str(index)+".txt",sigvals, header="Ensemble "+ ensemble + ", m = " + str(m0) + ", lambda = "+str(l) + "; CURRENT LIMITS EXCEEDED (DS-50)")
+            np.savetxt(outfile, sigvals, header="Ensemble "+ ensemble + ", m = " + str(m0) + ", lambda = "+str(l) + "; CURRENT LIMITS EXCEEDED (DS-50)")
         sys.exit()
 
     #Check against current limits - SuperCDMS
@@ -113,7 +117,7 @@ def CalcDiscrim(ensemble, m0, f, r_np, outfile=None, exposure=-1):
     if (exptGermanium.sig_eff(m0, l) > CDMSlim(m0)):
         print " Current limit exceeded (SuperCDMS)..."
         if (save_to_file):
-            np.savetxt(output_folder + "Results_p" + str(index)+".txt",sigvals, header="Ensemble "+ ensemble + ", m = " + str(m0) + ", lambda = "+str(l) + "; CURRENT LIMITS EXCEEDED (SuperCDMS)")
+            np.savetxt(outfile, sigvals, header="Ensemble "+ ensemble + ", m = " + str(m0) + ", lambda = "+str(l) + "; CURRENT LIMITS EXCEEDED (SuperCDMS)")
         sys.exit()
 
     #List of masses to calculate for
