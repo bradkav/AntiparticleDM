@@ -8,5 +8,6 @@ Run `scripts/GeneratePlots.sh` to (re-)generate all the plots from the paper.
 
 - `PlotContours_row.py`: Plot contours of discrimination significance for a given experimental ensemble.
 - `PlotContours_analytic.py`: Plot analytic estimate of discrepancy between Dirac and Majorana cross sections.
-- `PlotExposure.py`: Plot discrimination significance as a function of exposure for Ensembles A and D.
+- `PlotExposure.py`: Plot discrimination significance as a function of exposure for Ensembles A and D.  
+- `PlotFundamentalCouplings.py `: Plot an illustration of the fundamental (Lagrangian-level) couplings which correspond to the regions where good discrimination is possible.
 - `PlotGridPoints.py `: Plot an illustration of the numbering of the grid points used in the plane (f, lambda_p/lambda_n).

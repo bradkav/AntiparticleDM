@@ -164,7 +164,7 @@ ax1.plot(CPP.getf(maxID+1), CPP.getR(maxID+1),ms=12,marker='*', mew=0.5, color='
 print "     Maximum significance: ", np.max(sigvals), "[INDEX " + str(maxID+1)+"]"
 
 #Add red squares in some cases
-if ((expt == "D") and (mx == 50)):
+if ((expt == "D" or expt == "A") and (mx == 50)):
     ax1.plot(-0.995, 0.75, ms=8,marker='s',color='r', mew=0.5)
     ax1.plot(-0.995, 0.8, ms=8,marker='s',color='r', mew=0.5)
 
